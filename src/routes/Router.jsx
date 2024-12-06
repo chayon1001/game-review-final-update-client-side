@@ -2,6 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayouts from "../layouts/MainLayouts";
 import Home from "../pages/Home";
 import ErrorElement from "../pages/ErrorElement";
+import AllReviews from "../components/AllReviews/AllReviews";
+import AddReview from "../components/addReview/AddReview";
+import MyReviews from "../components/myReviews/MyReviews";
+import GameWatchList from "../components/gameWatchList/GameWatchList";
 
 export const router = createBrowserRouter([
      {
@@ -13,6 +17,24 @@ export const router = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>
             },
+            {
+                path: "/allReviews",
+                element: <AllReviews></AllReviews>
+            },
+            {
+                path: "/addReview",
+                element: <AddReview></AddReview>
+            },
+            {
+                path: "/myReviews",
+                element: <MyReviews></MyReviews>
+            },
+
+            {
+                 path: "/gameWatchList",
+                 element: <GameWatchList></GameWatchList>
+            },
+           
 
         ]
 
