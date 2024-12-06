@@ -43,6 +43,7 @@ const Login = () => {
         .then((res)=>{
             setUser(res)
             navigate('/')
+            toast.success('Login successful!');
         })
         .catch(error=>{
             console.log("ERROR", error.message)
