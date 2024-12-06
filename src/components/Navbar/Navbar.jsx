@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoGameControllerOutline } from "react-icons/io5";
 
 const Navbar = () => {
@@ -66,9 +66,12 @@ const Navbar = () => {
                     </NavLink>
 
                     <div className="">
-                        <button className="bg-yellow-500  text-black  text-xl py-2 px-4 rounded-xl">
-                            Login
-                        </button>
+                        <Link to='/auth/login'>
+                            <button className="bg-yellow-500  text-black  text-xl py-2 px-4 rounded-xl">
+                                Login
+                            </button>
+                        </Link>
+
                     </div>
                 </div>
             </div>
