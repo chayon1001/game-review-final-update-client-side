@@ -8,6 +8,7 @@ import MyReviews from "../components/myReviews/MyReviews";
 import GameWatchList from "../components/gameWatchList/GameWatchList";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
+import ReviewDetails from "../components/ReviewDetails/ReviewDetails";
 
 export const router = createBrowserRouter([
      {
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
             {
                 path: '/auth/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/review/:id',
+                element: <ReviewDetails></ReviewDetails>
             }
            
 

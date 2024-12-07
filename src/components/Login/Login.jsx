@@ -33,6 +33,7 @@ const Login = () => {
         })
         .catch((err) => {
             setError({ ...error, login: err.code})
+            toast.error('Invalid email or password please try again')
             
           });
         

@@ -23,7 +23,7 @@ const AddReview = () => {
         console.log(user);
 
 
-        fetch('http://localhost:5000/games', {
+        fetch('http://localhost:5000/addReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

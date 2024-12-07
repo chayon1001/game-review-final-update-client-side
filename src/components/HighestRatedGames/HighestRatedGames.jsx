@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const HighestRatedGames = () => {
     const [games, setGames] = useState([]);
 
-    // Fetch data from the server
+    
     useEffect(() => {
-        fetch("http://localhost:5000/games") // Replace with your actual server URL
+        fetch("http://localhost:5000/review") 
             .then((res) => res.json())
             .then((data) => {
-                // Sort by rating in descending order and limit to 6
+               
                 const highestRatedGames = data
                     .sort((a, b) => b.rating - a.rating)
                     .slice(0, 6);
@@ -38,7 +38,7 @@ const HighestRatedGames = () => {
                                         className="w-full h-52   rounded-md" />
                                 </div>
                                 <div className="p-4">
-                                  
+
                                     <h3 className="text-xl font-semibold text-black mb-2">
                                         {game.gameTitle}
                                     </h3>
@@ -53,9 +53,9 @@ const HighestRatedGames = () => {
 
                                     </p>
 
-                                    {/* Explore Details Button */}
+                                   
                                     <Link
-                                        to={`/game-details/${game._id}`}
+                                        to={`/review/${game._id}`}
                                         className="block text-center bg-yellow-500 text-black py-2 px-4 rounded-md font-semibold "
                                     >
                                         Explore Details
