@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../components/Banner/Banner';
-import HighestRatedGames from '../components/HighestRatedGames/HighestRatedGames';
+import HighestRatedGames from '../components/High/HighestRatedGames';
 
 const Home = () => {
     return (
