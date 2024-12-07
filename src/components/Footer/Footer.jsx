@@ -19,7 +19,7 @@ const Footer = () => {
 
         <div>
           <h3 className="text-xl font-bold mb-4">Contact Info</h3>
-          <p className="text-gray-400">Address: Your address goes here, your demo address. Bangladesh.</p>
+          <p className="text-gray-400">Address: Mahigonj, Rangpur, Bangladesh.</p>
           <p className="mt-2 text-gray-400">Phone: +880 44338899</p>
           <p className="mt-2 text-gray-400">Email: info@colorlib.com</p>
         </div>
