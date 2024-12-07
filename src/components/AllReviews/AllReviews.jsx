@@ -39,8 +39,9 @@ const AllReviews = () => {
                                 <p className="text-gray-600">
                                     Genre: {review.genres}
                                 </p>
+                                {/* Dynamic Link to the Review Details page */}
                                 <Link
-                                    to="/review/id"
+                                    to={`/review/${review._id}`} // Correct dynamic URL
                                     className="block bg-yellow-500 text-black text-center py-2 mt-4 rounded-md font-semibold hover:bg-yellow-600 transition"
                                 >
                                     Explore Details
