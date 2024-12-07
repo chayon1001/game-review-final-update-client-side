@@ -1,11 +1,39 @@
 import React from 'react';
 
 const AddReview = () => {
+
+    const handleAddReview = event =>{
+        event.preventDefault();
+        const form = event.target;
+        
+        const coverImage = form.coverImage.value;
+        const gameTitle = form.gameTitle.value;
+        const reviewDescription = form.reviewDescription.value;
+        const rating = form.rating.value;
+        const publishingYear = form.publishingYear.value;
+
+        const user = {coverImage, gameTitle, reviewDescription, rating, publishingYear}
+        console.log(user);
+
+
+        fetch('http://localhost:5000/games',{
+            method : 'POST',
+            headers : {
+                'content-type': 'application/json'
+
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data)
+        })
+    }
     return (
         <div className=" min-h-screen flex items-center justify-center p-6">
             <div className="bg-gray-800 text-white w-full max-w-lg rounded-lg shadow-lg p-8">
                 <h2 className="text-2xl font-bold mb-6 text-yellow-500">Submit a Game Review</h2>
-                <form className="space-y-4">
+                <form onSubmit={handleAddReview} className="space-y-4">
 
                     <div>
                         <label htmlFor="coverImage" className="block text-gray-300 font-medium mb-1">
@@ -69,6 +97,7 @@ const AddReview = () => {
                         </label>
                         <input
                             type="text"
+                             
 
                             name="publishingYear"
                             placeholder="Enter year (e.g., 2024)"
