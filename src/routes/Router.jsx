@@ -10,9 +10,10 @@ import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import ReviewDetails from "../components/ReviewDetails/ReviewDetails";
 import UpdateReview from "../components/UpdateReview/UpdateReview";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
-     {
+    {
         path: '/',
         element: <MainLayouts></MainLayouts>,
         errorElement: <ErrorElement></ErrorElement>,
@@ -27,16 +28,22 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/addReview",
-                element: <AddReview></AddReview>
+                element: <PrivateRoute>
+                    <AddReview></AddReview>
+                </PrivateRoute>
             },
             {
                 path: "/myReviews",
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoute>
+                    <MyReviews></MyReviews>
+                </PrivateRoute>
             },
 
             {
-                 path: "/gameWatchList",
-                 element: <GameWatchList></GameWatchList>
+                path: "/gameWatchList",
+                element: <PrivateRoute>
+                    <GameWatchList></GameWatchList>
+                </PrivateRoute>
             },
 
             {
@@ -55,7 +62,7 @@ export const router = createBrowserRouter([
                 path: "/updateReview/:id",
                 element: <UpdateReview></UpdateReview>
             }
-           
+
 
         ]
 
