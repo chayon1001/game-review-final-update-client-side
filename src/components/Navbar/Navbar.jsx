@@ -60,6 +60,14 @@ const Navbar = () => {
                     >
                         Game WatchList
                     </NavLink>
+                    <NavLink
+                        to="/blog"
+                        className={({ isActive }) =>
+                            isActive ? "text-yellow-500 border-yellow-500" : "hover:text-yellow-500"
+                        }
+                    >
+                      Blog
+                    </NavLink>
 
                     <NavLink
                         to="/contactUs"

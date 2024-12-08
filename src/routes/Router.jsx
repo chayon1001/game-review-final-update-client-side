@@ -12,6 +12,7 @@ import ReviewDetails from "../components/ReviewDetails/ReviewDetails";
 import UpdateReview from "../components/UpdateReview/UpdateReview";
 import PrivateRoute from "./PrivateRoute";
 import ContactUs from "../pages/ContactUs/ContactUs";
+import BlogLayout from "../pages/BlogLayout/BlogLayout";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
             {
                 path: '/contactUs',
                 element: <ContactUs></ContactUs>
+            },
+            {
+                path: '/blog',
+                element: <BlogLayout></BlogLayout>
             },
             {
                 path: "/addReview",
