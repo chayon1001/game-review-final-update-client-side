@@ -1,0 +1,9 @@
+.highest-rated-section {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  .highest-rated-section h2 {
+    font-size: 2.5rem;
+    color: #444;
+  }
