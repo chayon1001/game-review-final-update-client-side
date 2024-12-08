@@ -5,9 +5,23 @@ import secondImage from '../../assets/second.jpg'
 import thirdImage from '../../assets/third.jpg'
 import fourthImage from '../../assets/fourth.jpg'
 
+import { Typewriter } from "react-simple-typewriter";
+import './Banner.css'
+
 const Banner = () => {
     return (
-        <div className="carousel w-full h-[500px]">
+        <div className="carousel w-full h-[500px] banner-container">
+            <h1>
+                <Typewriter
+                    words={["Welcome to Game Warrior!", "Explore the Best Reviews!", "Join Our Community!"]}
+                    loop={5}
+                    cursor
+                    cursorStyle="_"
+                    typeSpeed={100}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                />
+            </h1>
             <div id="slide1" className="carousel-item relative w-full">
                 <img
                     src={firstImage}

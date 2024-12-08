@@ -1,0 +1,9 @@
+.banner-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .banner-container h1 {
+    font-size: 3rem;
+    color: #333;
+  }
