@@ -4,6 +4,7 @@ import HighestRatedGames from '../components/High/HighestRatedGames';
 
 import { Typewriter } from "react-simple-typewriter";
 import { Fade } from "react-awesome-reveal";
+import ContactUs from './ContactUs/ContactUs';
 
 const Home = () => {
     const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -58,6 +59,8 @@ const Home = () => {
             </Fade>
             <Fade delay={500} duration={1000}>
                 <HighestRatedGames />
+
+                <ContactUs></ContactUs>
             </Fade>
         </div>
     );

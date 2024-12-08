@@ -11,6 +11,7 @@ import Register from "../components/Register/Register";
 import ReviewDetails from "../components/ReviewDetails/ReviewDetails";
 import UpdateReview from "../components/UpdateReview/UpdateReview";
 import PrivateRoute from "./PrivateRoute";
+import ContactUs from "../pages/ContactUs/ContactUs";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             {
                 path: "/allReviews",
                 element: <AllReviews></AllReviews>
+            },
+            {
+                path: '/contactUs',
+                element: <ContactUs></ContactUs>
             },
             {
                 path: "/addReview",

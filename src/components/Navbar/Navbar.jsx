@@ -61,6 +61,16 @@ const Navbar = () => {
                         Game WatchList
                     </NavLink>
 
+                    <NavLink
+                        to="/contactUs"
+                        className={({ isActive }) =>
+                            isActive ? "text-yellow-500 border-yellow-500" : "hover:text-yellow-500"
+                        }
+                    >
+                        Contact
+                    </NavLink>
+
+
                   
                     <div className="relative z-20">
                         {user && user.email ? (
