@@ -24,7 +24,7 @@ const GameWatchlist = () => {
 
 
     const handleRemove = (id) => {
-        console.log("Attempting to delete game with ID:", id);
+       
 
         Swal.fire({
             title: "Are you sure?",
