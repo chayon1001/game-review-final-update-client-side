@@ -9,6 +9,7 @@ import GameWatchList from "../components/gameWatchList/GameWatchList";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import ReviewDetails from "../components/ReviewDetails/ReviewDetails";
+import UpdateReview from "../components/UpdateReview/UpdateReview";
 
 export const router = createBrowserRouter([
      {
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
             {
                 path: '/review/:id',
                 element: <ReviewDetails></ReviewDetails>
+            },
+            {
+                path: "/updateReview/:id",
+                element: <UpdateReview></UpdateReview>
             }
            
 
