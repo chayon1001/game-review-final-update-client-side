@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Banner from '../components/Banner/Banner';
 import HighestRatedGames from '../components/High/HighestRatedGames';
 
+import { Typewriter } from "react-simple-typewriter";
+import { Fade } from "react-awesome-reveal";
+
 const Home = () => {
     const [isDarkTheme, setIsDarkTheme] = useState(false);
 
@@ -33,12 +36,29 @@ const Home = () => {
 
     return (
         <div
-            className="-z-10"
+            className="-z-10 highest-rated-section"
             onMouseEnter={handleMouseEnter} // Trigger dark theme on mouse enter
             onMouseLeave={handleMouseLeave} // Trigger light theme on mouse leave
         >
-            <Banner />
-            <HighestRatedGames />
+            <Fade duration={1000}>
+                <h2>
+                    <Typewriter
+                        words={["Explore the Top Rated Games!"]}
+                        loop={1}
+                        cursor
+                        cursorStyle="_"
+                        typeSpeed={100}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                    />
+                </h2>
+
+
+                <Banner />
+            </Fade>
+            <Fade delay={500} duration={1000}>
+                <HighestRatedGames />
+            </Fade>
         </div>
     );
 };
