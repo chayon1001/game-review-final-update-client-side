@@ -11,7 +11,7 @@ const Navbar = () => {
     return (
         <nav className="bg-slate-900 text-white border-b-4 border-yellow-500 w-full">
             <div className="max-w-screen-xl mx-auto flex justify-between items-center px-4 py-3">
-                {/* Logo */}
+            
                 <div className="flex items-center gap-3">
                     <IoGameControllerOutline className="text-yellow-500 text-3xl" />
                     <div className="text-yellow-500 font-bold text-2xl hidden lg:block">
@@ -19,7 +19,7 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* Mobile Menu Toggle */}
+             
                 <div className="lg:hidden">
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -42,7 +42,7 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* Desktop Nav Links */}
+            
                 <div className="hidden lg:flex space-x-6 items-center">
                     <NavLink
                         to="/"
@@ -101,7 +101,7 @@ const Navbar = () => {
                         Contact
                     </NavLink>
 
-                    {/* User Info or Login */}
+                 
                     <div className="relative">
                         {user && user.email ? (
                             <div
@@ -138,7 +138,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+        
             {isMenuOpen && (
                 <div className="lg:hidden bg-slate-900 text-white flex flex-col items-center py-4 space-y-4 w-full">
                     <NavLink
@@ -191,7 +191,7 @@ const Navbar = () => {
                         Contact
                     </NavLink>
 
-                    {/* User Info or Login */}
+                  
                     <div>
                         {user && user.email ? (
                             <div className="flex flex-col items-center">

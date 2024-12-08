@@ -12,7 +12,7 @@ const ReviewDetails = () => {
 
     useEffect(() => {
        
-        fetch(`http://localhost:5000/review/${id}`)
+        fetch(`https://game-review-server-seven.vercel.app/review/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setReview(data);
@@ -37,7 +37,7 @@ const ReviewDetails = () => {
             userName: user.displayName,
         };
 
-        fetch("http://localhost:5000/watchlist", {
+        fetch("https://game-review-server-seven.vercel.app/watchlist", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

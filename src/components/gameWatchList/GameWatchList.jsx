@@ -13,7 +13,7 @@ const GameWatchlist = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/myWatchlist?email=${user.email}`)
+            fetch(`https://game-review-server-seven.vercel.app/myWatchlist?email=${user.email}`)
                 .then((res) => res.json())
                 .then((data) => setWatchlist(data))
                 .catch((err) => console.error('Error fetching watchlist:', err));
@@ -36,7 +36,7 @@ const GameWatchlist = () => {
             confirmButtonText: "Yes, remove it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/myWatchlist/${id}`, {
+                fetch(`https://game-review-server-seven.vercel.app/myWatchlist/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => {
