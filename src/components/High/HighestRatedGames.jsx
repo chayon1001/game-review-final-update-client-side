@@ -21,7 +21,7 @@ const HighestRatedGames = () => {
     return (
         <div className=" py-10 ">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-semibold text-black mb-8 text-center">
+                <h2 className="text-3xl font-semibold text-white mb-8 text-center">
                     Highest Rated Games
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -29,7 +29,7 @@ const HighestRatedGames = () => {
                         games.map((game) => (
                             <div
                                 key={game._id}
-                                className=" rounded-lg  border-2">
+                                className=" rounded-lg  border-2 bg-gray-300">
 
                                 <div className="p-4">
                                     <img

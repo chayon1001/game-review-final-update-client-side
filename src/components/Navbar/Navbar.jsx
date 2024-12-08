@@ -8,7 +8,7 @@ const Navbar = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <nav className="bg-slate-900 text-white border-b-4 border-yellow-500 ">
+        <nav className="bg-slate-900 text-white border-b-4 border-yellow-500">
             <div className="container mx-auto flex justify-between items-center px-4 py-3">
                
                 <div className="flex items-center justify-center gap-3">
