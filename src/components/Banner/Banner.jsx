@@ -1,63 +1,63 @@
-import React from 'react';
-
-import firstImage from '../../assets/first.jpg'
-import secondImage from '../../assets/second.jpg'
-import thirdImage from '../../assets/third.jpg'
-import fourthImage from '../../assets/fourth.jpg'
-
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Typewriter } from "react-simple-typewriter";
-import './Banner.css'
+
+import firstImage from "../../assets/first.jpg";
+import secondImage from "../../assets/second.jpg";
+import thirdImage from "../../assets/third.jpg";
+import fourthImage from "../../assets/fourth.jpg";
+
+import "./Banner.css";
 
 const Banner = () => {
+    const slides = [
+        { id: 1, src: firstImage, alt: "First Slide" },
+        { id: 2, src: secondImage, alt: "Second Slide" },
+        { id: 3, src: thirdImage, alt: "Third Slide" },
+        { id: 4, src: fourthImage, alt: "Fourth Slide" },
+    ];
+
     return (
-        <div className="carousel w-full h-[500px] banner-container">
-            <h1>
-                <Typewriter
-                    words={["Welcome to Game Warrior!", "Explore the Best Reviews!", "Join Our Community!"]}
-                    loop={5}
-                    cursor
-                    cursorStyle="_"
-                    typeSpeed={100}
-                    deleteSpeed={50}
-                    delaySpeed={1000}
-                />
-            </h1>
-            <div id="slide1" className="carousel-item relative w-full">
-                <img
-                    src={firstImage}
-                    className="w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide4" className="btn btn-circle">❮</a>
-                    <a href="#slide2" className="btn btn-circle">❯</a>
-                </div>
+        <div className="banner-container">
+            <div className="typewriter-container text-center py-2 text-white bg-black">
+                <h1 className="text-2xl md:text-4xl font-bold">
+                    <Typewriter
+                        words={[
+                            "Welcome to Game Warrior!",
+                            "Explore the Best Reviews!",
+                            "Join Our Community!",
+                        ]}
+                        loop={true}
+                        cursor
+                        cursorStyle="_"
+                        typeSpeed={80}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                    />
+                </h1>
             </div>
-            <div id="slide2" className="carousel-item relative w-full">
-                <img
-                    src={secondImage}
-                    className="w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide1" className="btn btn-circle">❮</a>
-                    <a href="#slide3" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-            <div id="slide3" className="carousel-item relative w-full">
-                <img
-                    src={thirdImage}
-                    className="w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide2" className="btn btn-circle">❮</a>
-                    <a href="#slide4" className="btn btn-circle">❯</a>
-                </div>
-            </div>
-            <div id="slide4" className="carousel-item relative w-full">
-                <img
-                    src={fourthImage}
-                    className="w-full" />
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href="#slide3" className="btn btn-circle">❮</a>
-                    <a href="#slide1" className="btn btn-circle">❯</a>
-                </div>
-            </div>
+            <Swiper
+                modules={[Navigation, Pagination, Autoplay]}
+                navigation
+                pagination={{ clickable: true }}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                loop={true}
+                className="mySwiper w-full h-[400px]"
+            >
+                {slides.map((slide) => (
+                    <SwiperSlide key={slide.id}>
+                        <img
+                            src={slide.src}
+                            alt={slide.alt}
+                            className="w-full h-full object-cover"
+                        />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </div>
     );
 };

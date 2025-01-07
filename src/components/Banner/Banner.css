@@ -1,9 +1,12 @@
 .banner-container {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  .banner-container h1 {
-    font-size: 3rem;
-    color: #333;
-  }
+  background-color: #000;
+}
+
+.typewriter-container {
+  font-family: "Arial", sans-serif;
+}
+
+.mySwiper img {
+  object-fit: cover;
+  border-radius: 10px;
+}
