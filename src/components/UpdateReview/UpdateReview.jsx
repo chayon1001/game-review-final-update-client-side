@@ -18,7 +18,7 @@ const UpdateReview = () => {
 
   
     useEffect(() => {
-        fetch(`https://game-review-server-seven.vercel.app/review/${id}`)
+        fetch(`https://game-review-server-side-sage.vercel.app/review/${id}`)
             .then((res) => res.json())
             .then((data) => setReview(data))
             .catch((err) => console.error("Error fetching review:", err));
@@ -34,7 +34,7 @@ const UpdateReview = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
     
-        fetch(`https://game-review-server-seven.vercel.app/review/${id}`, {
+        fetch(`https://game-review-server-side-sage.vercel.app/review/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(review),

@@ -14,7 +14,7 @@ const AllReviews = () => {
 
 
     useEffect(() => {
-        fetch("https://game-review-server-seven.vercel.app/review")
+        fetch("https://game-review-server-side-sage.vercel.app/review")
             .then((res) => res.json())
             .then((data) => {
                 setReviews(data);

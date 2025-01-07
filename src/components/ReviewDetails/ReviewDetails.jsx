@@ -11,7 +11,7 @@ const ReviewDetails = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`https://game-review-server-seven.vercel.app/review/${id}`)
+        fetch(`https://game-review-server-side-sage.vercel.app/review/${id}`)
             .then((res) => {
                 if (!res.ok) {
                     throw new Error("Failed to fetch review details");
@@ -41,7 +41,7 @@ const ReviewDetails = () => {
             userName: user.displayName,
         };
 
-        fetch("https://game-review-server-seven.vercel.app/watchlist", {
+        fetch("https://game-review-server-side-sage.vercel.app/addwatchlist", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -21,7 +21,7 @@ const AddReview = () => {
         const user = { coverImage, gameTitle, reviewDescription, rating, publishingYear, genres, userName, userEmail};
         console.log(user);
 
-        fetch('https://game-review-server-seven.vercel.app/addReview', {
+        fetch('https://game-review-server-side-sage.vercel.app/addReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -10,7 +10,7 @@ const MyReviews = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`https://game-review-server-seven.vercel.app/userReviews?email=${user.email}`)
+            fetch(`https://game-review-server-side-sage.vercel.app/userReviews?email=${user.email}`)
                 .then((res) => res.json())
                 .then((data) => setReviews(data))
                 .catch((err) => console.log(err));
@@ -28,7 +28,7 @@ const MyReviews = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://game-review-server-seven.vercel.app/review/${id}`, {
+                fetch(`https://game-review-server-side-sage.vercel.app/review/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())

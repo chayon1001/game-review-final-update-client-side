@@ -1,23 +1,21 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import { AuthContext } from '../../provider/AuthProvider';
 
-const GameWatchlist = () => {
+const GameWatchList = () => {
     const [watchlist, setWatchlist] = useState([]);
-    const { user } = useContext(AuthContext);
-    const navigate = useNavigate();
 
     useEffect(() => {
-            if (user?.email) {
-                fetch(`https://game-review-server-seven.vercel.app/myWatchlist?email=${user.email}`)
-                    .then((res) => res.json())
-                    .then((data) => setWatchlist(data))
-                    .catch((err) => console.log(err));
-            }
-        }, [user?.email]);
+        axios
+            .get('https://game-review-server-side-sage.vercel.app/watchlist')
+            .then((response) => {
+                console.log('Axios fetched data:', response.data);
+                setWatchlist(response.data);
+            })
+            .catch((error) => console.error('Error fetching data with axios:', error));
+    }, []);
 
-    const handleRemove = (id) => {
+    const handleRemove = (_id) => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -28,18 +26,18 @@ const GameWatchlist = () => {
             confirmButtonText: 'Yes, remove it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://game-review-server-seven.vercel.app/myWatchlist/${id}`, {
+                fetch(`https://game-review-server-side-sage.vercel.app/watchlist/${_id}`, {
                     method: 'DELETE',
                 })
                     .then((res) => {
                         if (!res.ok) {
-                            throw new Error(`Failed to delete: ${res.statusText}`);
+                            throw new Error('Failed to delete');
                         }
                         return res.json();
                     })
                     .then(() => {
                         Swal.fire('Removed!', 'The game has been removed from your watchlist.', 'success');
-                        setWatchlist(watchlist.filter((game) => game._id !== id));
+                        setWatchlist(watchlist.filter((game) => game._id !== _id));
                     })
                     .catch((error) => {
                         console.error('Error removing game:', error);
@@ -67,9 +65,9 @@ const GameWatchlist = () => {
                     <tbody>
                         {watchlist.map((game) => (
                             <tr key={game._id} className="border-b">
-                                <td className="px-4 py-2">{game.gameTitle}</td>
-                                <td className="px-4 py-2">{game.genres}</td>
-                                <td className="px-4 py-2">{game.rating}/10</td>
+                                <td className="px-4 py-2">{game.gameTitle || 'Unknown Title'}</td>
+                                <td className="px-4 py-2">{game.genres || 'Unknown Genre'}</td>
+                                <td className="px-4 py-2">{game.rating ? `${game.rating}/10` : 'No Rating'}</td>
                                 <td className="px-4 py-2">
                                     <button
                                         onClick={() => handleRemove(game._id)}
@@ -87,4 +85,4 @@ const GameWatchlist = () => {
     );
 };
 
-export default GameWatchlist;
+export default GameWatchList;
