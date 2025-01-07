@@ -1,15 +1,16 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaGlobe, FaBehance } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaGlobe, FaBehance, FaLinkedin } from "react-icons/fa";
 import { SiAmazon, SiAmazongames } from "react-icons/si";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-white py-10">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-        
+    <footer className="bg-slate-900  text-white py-10">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+
         <div>
           <h2 className="text-xl font-bold text-yellow-500 flex items-center gap-2">
-            <span className="text-3xl"><SiAmazongames/></span> Game Warrior
+            <span className="text-3xl"><SiAmazongames /></span> Game Warrior
           </h2>
           <p className="mt-4 text-gray-400">
             Heaven fruitful doesn't over lesser days appear creeping seasons so
@@ -20,23 +21,24 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-bold mb-4">Contact Info</h3>
           <p className="text-gray-400">Address: Mahigonj, Rangpur, Bangladesh.</p>
-          <p className="mt-2 text-gray-400">Phone: +880 44338899</p>
-          <p className="mt-2 text-gray-400">Email: info@colorlib.com</p>
+          <p className="mt-2 text-gray-400">Phone: +880 1878250186</p>
+          <p className="mt-2 text-gray-400">Email: harishankarbarman50@gmail.com</p>
         </div>
 
-        
+
         <div>
           <h3 className="text-xl font-bold mb-4">Important Link</h3>
           <ul className="text-gray-400 space-y-2">
-            <li>WHMCS-bridge</li>
-            <li>Search Domain</li>
-            <li>My Account</li>
-            <li>Shopping Cart</li>
-            <li>Our Shop</li>
+            <Link to='/contactUs'><li>Contact</li></Link>
+            <Link to='/blog'><li>Blogs</li></Link>
+            <Link to='/allReviews'><li>All Reviews</li></Link>
+            <Link to='/myReviews'><li>My Reviews</li></Link>
+            <Link to='/addReview'><li>Add Reviews</li></Link>
+
           </ul>
         </div>
 
-      
+
         <div>
           <h3 className="text-xl font-bold mb-4">Newsletter</h3>
           <p className="text-gray-400">
@@ -49,27 +51,49 @@ const Footer = () => {
               className="p-3 rounded-l-md w-full bg-slate-800 text-gray-300"
             />
             <button className="bg-yellow-500 px-7 py-3 rounded-r-md ">
-              
+
             </button>
           </div>
         </div>
       </div>
 
-  
+
       <div className="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500">
         <p className="mb-4">
-          Copyright ©2024 All rights reserved | This template is made with  by 
-          <span className="text-yellow-500 pl-1">Colorlib</span>
+          Copyright ©2025 All rights reserved
+
         </p>
         <div className="flex justify-center space-x-4 text-xl">
-          <FaFacebook className="hover:text-yellow-500 " />
-          <FaTwitter className="hover:text-yellow-500 " />
-          <FaGlobe className="hover:text-yellow-500 " />
-          <FaBehance className="hover:text-yellow-500 " />
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-yellow-500"
+          >
+            <FaFacebook />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-yellow-500"
+          >
+            <FaTwitter />
+          </a>
+         
+          <a
+            href="https://www.linkedin.com/in/harishankar-barman-045a5b32b/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-yellow-500"
+          >
+            <FaLinkedin />
+          </a>
         </div>
-      </div>
+
+        </div>
     </footer>
   );
 };
 
-export default Footer;
+export default Footer; 
