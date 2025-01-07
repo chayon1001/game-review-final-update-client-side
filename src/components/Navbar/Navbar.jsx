@@ -11,7 +11,6 @@ const Navbar = () => {
     return (
         <nav className="bg-slate-900 text-white border-b-4 border-yellow-500 w-full sticky top-0 z-50">
             <div className="max-w-screen-xl mx-auto flex justify-between items-center px-4 py-3">
-            
                 <div className="flex items-center gap-3">
                     <IoGameControllerOutline className="text-yellow-500 text-3xl" />
                     <div className="text-yellow-500 font-bold text-2xl hidden lg:block">
@@ -19,7 +18,6 @@ const Navbar = () => {
                     </div>
                 </div>
 
-             
                 <div className="lg:hidden">
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -42,7 +40,6 @@ const Navbar = () => {
                     </button>
                 </div>
 
-            
                 <div className="hidden lg:flex space-x-6 items-center">
                     <NavLink
                         to="/"
@@ -60,38 +57,37 @@ const Navbar = () => {
                     >
                         All Reviews
                     </NavLink>
-                    <NavLink
-                        to="/addReview"
-                        className={({ isActive }) =>
-                            isActive ? "text-yellow-500 border-yellow-500" : "hover:text-yellow-500"
-                        }
-                    >
-                        Add Review
-                    </NavLink>
-                    <NavLink
-                        to="/myReviews"
-                        className={({ isActive }) =>
-                            isActive ? "text-yellow-500 border-yellow-500" : "hover:text-yellow-500"
-                        }
-                    >
-                        My Reviews
-                    </NavLink>
-                    <NavLink
-                        to="/gameWatchList"
-                        className={({ isActive }) =>
-                            isActive ? "text-yellow-500 border-yellow-500" : "hover:text-yellow-500"
-                        }
-                    >
-                        Game WatchList
-                    </NavLink>
-                    <NavLink
-                        to="/blog"
-                        className={({ isActive }) =>
-                            isActive ? "text-yellow-500 border-yellow-500" : "hover:text-yellow-500"
-                        }
-                    >
-                        Blog
-                    </NavLink>
+
+                    {/* Show these links only if the user is logged in */}
+                    {user && user.email && (
+                        <>
+                            <NavLink
+                                to="/addReview"
+                                className={({ isActive }) =>
+                                    isActive ? "text-yellow-500 border-yellow-500" : "hover:text-yellow-500"
+                                }
+                            >
+                                Add Review
+                            </NavLink>
+                            <NavLink
+                                to="/myReviews"
+                                className={({ isActive }) =>
+                                    isActive ? "text-yellow-500 border-yellow-500" : "hover:text-yellow-500"
+                                }
+                            >
+                                My Reviews
+                            </NavLink>
+                            <NavLink
+                                to="/gameWatchList"
+                                className={({ isActive }) =>
+                                    isActive ? "text-yellow-500 border-yellow-500" : "hover:text-yellow-500"
+                                }
+                            >
+                                My WatchList
+                            </NavLink>
+                        </>
+                    )}
+
                     <NavLink
                         to="/contactUs"
                         className={({ isActive }) =>
@@ -101,7 +97,15 @@ const Navbar = () => {
                         Contact
                     </NavLink>
 
-                 
+                    <NavLink
+                        to="/blog"
+                        className={({ isActive }) =>
+                            isActive ? "text-yellow-500 border-yellow-500" : "hover:text-yellow-500"
+                        }
+                    >
+                        Blog
+                    </NavLink>
+
                     <div className="relative">
                         {user && user.email ? (
                             <div
@@ -138,7 +142,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-        
+            {/* Mobile menu */}
             {isMenuOpen && (
                 <div className="lg:hidden bg-slate-900 text-white flex flex-col items-center py-4 space-y-4 w-full">
                     <NavLink
@@ -155,26 +159,37 @@ const Navbar = () => {
                     >
                         All Reviews
                     </NavLink>
+                    {user && user.email && (
+                        <>
+                            <NavLink
+                                to="/addReview"
+                                className="text-yellow-500 hover:text-yellow-500"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Add Review
+                            </NavLink>
+                            <NavLink
+                                to="/myReviews"
+                                className="text-yellow-500 hover:text-yellow-500"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                My Reviews
+                            </NavLink>
+                            <NavLink
+                                to="/gameWatchList"
+                                className="text-yellow-500 hover:text-yellow-500"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                My WatchList
+                            </NavLink>
+                        </>
+                    )}
                     <NavLink
-                        to="/addReview"
+                        to="/contactUs"
                         className="text-yellow-500 hover:text-yellow-500"
                         onClick={() => setIsMenuOpen(false)}
                     >
-                        Add Review
-                    </NavLink>
-                    <NavLink
-                        to="/myReviews"
-                        className="text-yellow-500 hover:text-yellow-500"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        My Reviews
-                    </NavLink>
-                    <NavLink
-                        to="/gameWatchList"
-                        className="text-yellow-500 hover:text-yellow-500"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        Game WatchList
+                        Contact
                     </NavLink>
                     <NavLink
                         to="/blog"
@@ -183,15 +198,8 @@ const Navbar = () => {
                     >
                         Blog
                     </NavLink>
-                    <NavLink
-                        to="/contactUs"
-                        className="text-yellow-500 hover:text-yellow-500"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        Contact
-                    </NavLink>
 
-                  
+                    {/* Display login/logout options */}
                     <div>
                         {user && user.email ? (
                             <div className="flex flex-col items-center">
