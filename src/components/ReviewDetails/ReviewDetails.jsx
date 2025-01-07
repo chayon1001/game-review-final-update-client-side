@@ -8,18 +8,22 @@ const ReviewDetails = () => {
     const { id } = useParams();
     const { user } = useContext(AuthContext);
     const [review, setReview] = useState(null);
-    const [loading, setLoading] = useState(true); 
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-       
         fetch(`https://game-review-server-seven.vercel.app/review/${id}`)
-            .then((res) => res.json())
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error("Failed to fetch review details");
+                }
+                return res.json();
+            })
             .then((data) => {
                 setReview(data);
-                setLoading(false); 
+                setLoading(false);
             })
             .catch((err) => {
-                console.log( err);
+                console.error("Error fetching review details:", err);
                 setLoading(false);
             });
     }, [id]);
@@ -44,7 +48,12 @@ const ReviewDetails = () => {
             },
             body: JSON.stringify(watchlistData),
         })
-            .then((res) => res.json())
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error("Failed to add to watchlist");
+                }
+                return res.json();
+            })
             .then((data) => {
                 if (data.insertedId) {
                     toast.success("Added to watchlist successfully!");
@@ -53,17 +62,15 @@ const ReviewDetails = () => {
                 }
             })
             .catch((err) => {
-                console.log(err);
+                console.error("Error adding to watchlist:", err);
                 toast.error("Something went wrong.");
             });
     };
 
-   
     if (loading) {
         return <div className="text-center py-20">Loading review details...</div>;
     }
 
-    
     if (!review) {
         return <div className="text-center py-20">Review not found.</div>;
     }
@@ -73,12 +80,13 @@ const ReviewDetails = () => {
     return (
         <div className="min-h-screen p-6">
             <div className="max-w-4xl mx-auto rounded-lg shadow-lg p-6">
-                <img src={coverImage} alt={gameTitle} className="w-full h-64 object-cover rounded-md mb-6" />
-
+                <img
+                    src={coverImage}
+                    alt={gameTitle}
+                    className="w-full h-64 object-cover rounded-md mb-6"
+                />
                 <h2 className="text-2xl font-bold text-yellow-500 mb-4">{gameTitle}</h2>
-
                 <p className="mb-4">{reviewDescription}</p>
-
                 <p className="mb-4">Rating: {rating}/10</p>
                 <p className="mb-4">Genre: {genres}</p>
                 <p className="mb-4">Reviewer: {userName}</p>

@@ -3,41 +3,33 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../provider/AuthProvider';
 
-
-
 const GameWatchlist = () => {
     const [watchlist, setWatchlist] = useState([]);
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
-
     useEffect(() => {
-        if (user?.email) {
-            fetch(`https://game-review-server-seven.vercel.app/myWatchlist?email=${user.email}`)
-                .then((res) => res.json())
-                .then((data) => setWatchlist(data))
-                .catch((err) => console.error('Error fetching watchlist:', err));
-        } else {
-            navigate('/auth/login');
-        }
-    }, [user?.email, navigate]);
-
+            if (user?.email) {
+                fetch(`https://game-review-server-seven.vercel.app/myWatchlist?email=${user.email}`)
+                    .then((res) => res.json())
+                    .then((data) => setWatchlist(data))
+                    .catch((err) => console.log(err));
+            }
+        }, [user?.email]);
 
     const handleRemove = (id) => {
-       
-
         Swal.fire({
-            title: "Are you sure?",
+            title: 'Are you sure?',
             text: "You won't be able to revert this!",
-            icon: "warning",
+            icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: "#d33",
-            cancelButtonColor: "#3085d6",
-            confirmButtonText: "Yes, remove it!",
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, remove it!',
         }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`https://game-review-server-seven.vercel.app/myWatchlist/${id}`, {
-                    method: "DELETE",
+                    method: 'DELETE',
                 })
                     .then((res) => {
                         if (!res.ok) {
@@ -45,20 +37,17 @@ const GameWatchlist = () => {
                         }
                         return res.json();
                     })
-                    .then((data) => {
-                        Swal.fire("Removed!", "The game has been removed from your watchlist.", "success");
+                    .then(() => {
+                        Swal.fire('Removed!', 'The game has been removed from your watchlist.', 'success');
                         setWatchlist(watchlist.filter((game) => game._id !== id));
                     })
                     .catch((error) => {
-                        console.error("Error removing game:", error);
-                        Swal.fire("Error!", "Failed to remove the game.", "error");
+                        console.error('Error removing game:', error);
+                        Swal.fire('Error!', 'Failed to remove the game.', 'error');
                     });
             }
         });
     };
-
-
-
 
     return (
         <div className="container mx-auto py-10">
@@ -76,22 +65,21 @@ const GameWatchlist = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            watchlist.map((game) => (
-                                <tr key={game._id} className="border-b">
-                                    <td className="px-4 py-2">{game.gameTitle}</td>
-                                    <td className="px-4 py-2">{game.genres}</td>
-                                    <td className="px-4 py-2">{game.rating}/10</td>
-                                    <td className="px-4 py-2">
-                                        <button
-                                            onClick={() => handleRemove(game._id)}
-                                            className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
-                                        >
-                                            Remove
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))}
+                        {watchlist.map((game) => (
+                            <tr key={game._id} className="border-b">
+                                <td className="px-4 py-2">{game.gameTitle}</td>
+                                <td className="px-4 py-2">{game.genres}</td>
+                                <td className="px-4 py-2">{game.rating}/10</td>
+                                <td className="px-4 py-2">
+                                    <button
+                                        onClick={() => handleRemove(game._id)}
+                                        className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+                                    >
+                                        Remove
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             )}

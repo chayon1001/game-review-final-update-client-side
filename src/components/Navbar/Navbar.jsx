@@ -9,7 +9,7 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <nav className="bg-slate-900 text-white border-b-4 border-yellow-500 w-full">
+        <nav className="bg-slate-900 text-white border-b-4 border-yellow-500 w-full sticky top-0 z-50">
             <div className="max-w-screen-xl mx-auto flex justify-between items-center px-4 py-3">
             
                 <div className="flex items-center gap-3">
