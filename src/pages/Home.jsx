@@ -6,6 +6,7 @@ import { Typewriter } from "react-simple-typewriter";
 import { Fade } from "react-awesome-reveal";
 import ContactUs from './ContactUs/ContactUs';
 import BlogLayout from './BlogLayout/BlogLayout';
+import MyReviews from '../components/myReviews/MyReviews';
 
 const Home = () => {
    
@@ -35,8 +36,10 @@ const Home = () => {
             <Fade delay={500} duration={1000}>
                 <HighestRatedGames />
                 <BlogLayout></BlogLayout>
-
+                
+                <MyReviews></MyReviews>
                 <ContactUs></ContactUs>
+                
 
             </Fade>
         </div>

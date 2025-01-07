@@ -8,7 +8,6 @@ const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    
     useEffect(() => {
         if (user?.email) {
             fetch(`https://game-review-server-seven.vercel.app/userReviews?email=${user.email}`)
@@ -18,7 +17,6 @@ const MyReviews = () => {
         }
     }, [user?.email]);
 
-    
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -47,34 +45,33 @@ const MyReviews = () => {
         });
     };
 
-    
     const handleUpdate = (id) => {
         navigate(`/updateReview/${id}`);
     };
 
     return (
-        <div className="container mx-auto py-10">
+        <div className="max-w-7xl mx-auto rounded-lg py-10">
             <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">My Reviews</h2>
             {reviews.length === 0 ? (
                 <p className="text-center text-gray-600">No reviews found.</p>
             ) : (
-                <table className="table-auto w-full bg-white shadow-md rounded-lg">
-                    <thead>
-                        <tr className="bg-gray-200">
-                            <th className="px-4 py-2">Game Title</th>
-                            <th className="px-4 py-2">Rating</th>
-                            <th className="px-4 py-2">Genre</th>
-                            <th className="px-4 py-2">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            reviews.map((review) => (
-                                <tr key={review._id} className="border-b ">
-                                    <td className="px-4  py-2">{review.gameTitle}</td>
+                <div className="overflow-x-auto">
+                    <table className="min-w-full bg-white shadow-md rounded-lg">
+                        <thead>
+                            <tr className="bg-gray-200">
+                                <th className="px-4 py-2 text-center">Game Title</th>
+                                <th className="px-4 py-2 text-center">Rating</th>
+                                <th className="px-4 py-2 text-center">Genre</th>
+                                <th className="px-4 py-2 text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {reviews.map((review) => (
+                                <tr key={review._id} className="border-b">
+                                    <td className="px-4 py-2">{review.gameTitle}</td>
                                     <td className="px-4 py-2">{review.rating}/10</td>
                                     <td className="px-4 py-2">{review.genres}</td>
-                                    <td className="px-4 py-2 flex gap-2">
+                                    <td className="px-4 py-2 flex flex-col sm:flex-row justify-center items-center gap-2">
                                         <button
                                             onClick={() => handleUpdate(review._id)}
                                             className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
@@ -90,12 +87,12 @@ const MyReviews = () => {
                                     </td>
                                 </tr>
                             ))}
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             )}
         </div>
     );
-
 };
 
 export default MyReviews;
