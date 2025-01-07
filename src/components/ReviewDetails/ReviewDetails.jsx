@@ -79,11 +79,11 @@ const ReviewDetails = () => {
 
     return (
         <div className="min-h-screen p-6">
-            <div className="max-w-4xl mx-auto rounded-lg shadow-lg p-6">
+            <div className="max-w-7xl mx-auto rounded-lg shadow-lg p-6">
                 <img
                     src={coverImage}
                     alt={gameTitle}
-                    className="w-full h-64 object-cover rounded-md mb-6"
+                    className="w-full h-[500px] object-cover rounded-md mb-6"
                 />
                 <h2 className="text-2xl font-bold text-yellow-500 mb-4">{gameTitle}</h2>
                 <p className="mb-4">{reviewDescription}</p>

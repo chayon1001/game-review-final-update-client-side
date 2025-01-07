@@ -23,8 +23,8 @@ const HighestRatedGames = () => {
     }, []);
 
     return (
-        <div className=" py-10 highest-rated-games">
-            <div className="container mx-auto px-4">
+        <div className="w-10/12 mx-auto py-10 highest-rated-games">
+            <div className=" px-4">
                 <Fade duration={1000}>
                     <h2 className="text-3xl font-semibold text-white mb-8 text-center">
                         Highest Rated Games
@@ -32,7 +32,7 @@ const HighestRatedGames = () => {
                 </Fade>
 
                 <Fade delay={500} duration={1000}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
                         {
                             games.map((game) => (
                                 <div
@@ -52,12 +52,12 @@ const HighestRatedGames = () => {
                                         </h3>
 
 
-                                        <p className="text-black mb-4">Rating :  {game.rating}/10
+                                        <p className="text-black mb-4">  {game.rating}/10
 
                                         </p>
 
 
-                                        <p className="text-black mb-4"> Year : {game.publishingYear}
+                                        <p className="text-black mb-4">  {game.publishingYear}
 
                                         </p>
 
@@ -66,7 +66,7 @@ const HighestRatedGames = () => {
                                             to={`/review/${game._id}`}
                                             className="block text-center bg-yellow-500 text-black py-2 px-4 rounded-md font-semibold "
                                         >
-                                            Explore Details
+                                           See More
                                         </Link>
                                     </div>
                                 </div>

@@ -72,8 +72,8 @@ const AllReviews = () => {
     const sortedReviews = sortReviews(filteredReviews, sortOption);
 
     return (
-        <div className="py-10 bg-gray-100">
-            <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto  py-10 bg-gray-100 mt-10 rounded-md mb-10">
+            <div className="px-4">
                 <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
                     All Reviews
                 </h2>
@@ -116,7 +116,7 @@ const AllReviews = () => {
                 </div>
 
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                     {sortedReviews.map((review) => (
                         <div key={review._id} className="bg-white shadow-md rounded-lg">
                             <img
@@ -124,21 +124,21 @@ const AllReviews = () => {
                                 alt={review.gameTitle}
                                 className="w-full h-48 object-cover"
                             />
-                            <div className="p-4">
+                            <div className="text-center p-4 rounded-lg">
                                 <h3 className="text-xl font-semibold text-gray-800">
                                     {review.gameTitle}
                                 </h3>
-                                <p className="text-gray-600">Rating: {review.rating}/10</p>
+                                <p className="text-gray-600"> {review.rating}/10</p>
                                 <p className="text-gray-600">
-                                    Genre: {Array.isArray(review.genres) ? review.genres.join(", ") : review.genres}
+                                     {Array.isArray(review.genres) ? review.genres.join(", ") : review.genres}
                                 </p>
-                                <p className="text-gray-600">Year: {review.publishingYear}</p>
+                                <p className="text-gray-600"> {review.publishingYear}</p>
 
                                 <Link
                                     to={`/review/${review._id}`}
                                     className="block bg-yellow-500 text-black text-center py-2 mt-4 rounded-md font-semibold"
                                 >
-                                    Explore Details
+                                   See More
                                 </Link>
                             </div>
                         </div>
