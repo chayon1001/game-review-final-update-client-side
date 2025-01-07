@@ -48,38 +48,40 @@ const GameWatchList = () => {
     };
 
     return (
-        <div className="container mx-auto py-10">
+        <div className="max-w-7xl mx-auto py-10 px-4">
             <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">My Game Watchlist</h2>
             {watchlist.length === 0 ? (
                 <p className="text-center text-gray-600">Your watchlist is empty.</p>
             ) : (
-                <table className="table-auto w-full bg-white shadow-md rounded-lg">
-                    <thead>
-                        <tr className="bg-gray-200">
-                            <th className="px-4 py-2">Game Title</th>
-                            <th className="px-4 py-2">Genre</th>
-                            <th className="px-4 py-2">Rating</th>
-                            <th className="px-4 py-2">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {watchlist.map((game) => (
-                            <tr key={game._id} className="border-b">
-                                <td className="px-4 py-2">{game.gameTitle || 'Unknown Title'}</td>
-                                <td className="px-4 py-2">{game.genres || 'Unknown Genre'}</td>
-                                <td className="px-4 py-2">{game.rating ? `${game.rating}/10` : 'No Rating'}</td>
-                                <td className="px-4 py-2">
-                                    <button
-                                        onClick={() => handleRemove(game._id)}
-                                        className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
-                                    >
-                                        Remove
-                                    </button>
-                                </td>
+                <div className="overflow-x-auto">
+                    <table className="table-auto w-full bg-white shadow-md rounded-lg">
+                        <thead>
+                            <tr className="bg-gray-200">
+                                <th className="px-4 py-2 text-sm md:text-base">Game Title</th>
+                                <th className="px-4 py-2 text-sm md:text-base">Genre</th>
+                                <th className="px-4 py-2 text-sm md:text-base">Rating</th>
+                                <th className="px-4 py-2 text-sm md:text-base">Actions</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {watchlist.map((game) => (
+                                <tr key={game._id} className="border-b">
+                                    <td className="px-4 py-2 text-center text-sm md:text-base">{game.gameTitle || 'Unknown Title'}</td>
+                                    <td className="px-4 py-2 text-center text-sm md:text-base">{game.genres || 'Unknown Genre'}</td>
+                                    <td className="px-4 py-2 text-center text-sm md:text-base">{game.rating ? `${game.rating}/10` : 'No Rating'}</td>
+                                    <td className="px-4 py-2 text-center">
+                                        <button
+                                            onClick={() => handleRemove(game._id)}
+                                            className="bg-red-500 text-white px-4 py-2 text-sm md:text-base rounded-md hover:bg-red-600"
+                                        >
+                                            Remove
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             )}
         </div>
     );
