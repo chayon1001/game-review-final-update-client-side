@@ -6,7 +6,7 @@ import fourthImage from '../../assets/fourth.jpg'
 
 const BlogLayout = () => {
   return (
-    <div className="container mx-auto p-8">
+    <div className="max-w-7xl mx-auto p-4">
 
         <h2 className="text-black text-5xl text-center font-semibold">Blogs</h2>
      
