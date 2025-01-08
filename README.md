@@ -8,6 +8,15 @@
    1. First you clone the repo to your PC, then install all the required components. This project is built with React components.
 
 
+### React components.
+   1. react
+   2. firebase
+   3. react-router-dom
+   4. react-scripts
+   5.react-to-pdf
+   6. sweetalert
+
+
 ### Here are five key features you can highlight for our client-side website:
 
 
