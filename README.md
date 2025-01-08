@@ -15,6 +15,16 @@
    4. react-scripts
    5.react-to-pdf
    6. sweetalert
+   7. react healmet
+   8.stripe
+   9.react-query
+   10. axios
+   11. daisyui
+   12. imgbb-uploader
+   13. react-hook-form
+   14. react-hot-toast
+   15 .react-quill
+   16. mongodb
 
 
 ### Here are five key features you can highlight for our client-side website:
