@@ -71,5 +71,16 @@ ___
    - Visual consistency through CSS frameworks like Tailwind or Bootstrap.
 
    - Attention-grabbing elements like banners, icons, and hover effects.
+  
+## Getting Started
+  1. Install the dependencies: npm install
+  2. Set up the environment variables.
+  3. Start the development server: npm run dev.
+
+     
+## Contact
+For any questions or inquiries, please contact us at
+
+Email: harishankarbarman50@gmail.com.
 
 
