@@ -4,6 +4,10 @@
 - ## Client Site Live link : https://game-review-86d76.web.app
 
 
+### How do you install this project in your local folder..
+   1. First you clone the repo to your PC, then install all the required components. This project is built with React components.
+
+
 ### Here are five key features you can highlight for our client-side website:
 
 
